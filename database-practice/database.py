@@ -10,9 +10,7 @@ GET_ALL_BEANS = "SELECT * FROM beans;"
 
 GET_BEANS_BY_NAME = "SELECT * FROM beans WHERE name = ?;"
 
-GET_BEST_PREPARATION_FOR_BEAN = """
-    "SELECT * FROM beans WHERE name = ? ORDER BY rating DESC LIMIT 1;"
-"""
+GET_BEST_PREPARATION_FOR_BEAN = "SELECT * FROM beans WHERE name = ? ORDER BY rating DESC LIMIT 1;"
 
 
 def connect():
@@ -33,7 +31,7 @@ def add_bean(connection, name, method, rating):
 
 def get_all_beans(connection):
     with connection:
-        return connection.execute(GET_ALL_BEANS).fetchall()
+        return connection.execute(GET_ALL_BEANS).fetchall()  # returns a list of tuples
 
 
 def get_beans_by_name(connection, name):
