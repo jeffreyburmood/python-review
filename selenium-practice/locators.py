@@ -6,9 +6,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
+from selenium.webdriver.safari.service import Service
+
 
 def main():
-    driver = webdriver.Safari()
+    safari_service = Service()  # this uses the selenium manager behind the scenes to manage browser drivers
+    driver = webdriver.Safari(safari_service)
     driver.maximize_window()
 
     driver.implicitly_wait(10)  # seconds
