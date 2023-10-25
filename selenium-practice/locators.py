@@ -20,7 +20,8 @@ def main():
     driver.find_element(By.NAME,'inputPassword').send_keys('random passwd')
     driver.find_element(By.CLASS_NAME, 'signInBtn').click()
     # verify incorrect name or password message
-    print(driver.find_element(By.CLASS_NAME,'error').text)
+    message = driver.find_element(By.CLASS_NAME,'error').text
+    assert 'Incorrect' in message
 
     # click on Forgot Password and create a user login
     driver.find_element(By.LINK_TEXT,'Forgot your password?').click()
@@ -32,7 +33,8 @@ def main():
     driver.find_element(By.CSS_SELECTOR, 'input[placeholder="Phone Number"]').send_keys('4804409982')
 
     driver.find_element(By.CSS_SELECTOR,'.reset-pwd-btn').click()
-    print(driver.find_element(By.CSS_SELECTOR,'.infoMsg').text)
+    message = driver.find_element(By.CSS_SELECTOR,'.infoMsg').text
+    assert 'temporary password' in message
 
     driver.find_element(By.CSS_SELECTOR,'.go-to-login-btn').click()
 
