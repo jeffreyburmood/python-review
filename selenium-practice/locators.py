@@ -7,11 +7,12 @@ from selenium.webdriver.common.by import By
 import time
 
 from selenium.webdriver.safari.service import Service
+from selenium.webdriver.support.select import Select
 
 
 def main():
     safari_service = Service()  # this uses the selenium manager behind the scenes to manage browser drivers
-    driver = webdriver.Safari(safari_service)
+    driver = webdriver.Safari(service=safari_service)
     driver.maximize_window()
 
     driver.implicitly_wait(10)  # seconds
@@ -40,6 +41,34 @@ def main():
     assert 'temporary password' in message
 
     driver.find_element(By.CSS_SELECTOR,'.go-to-login-btn').click()
+
+    time.sleep(3)
+
+    # working with selections / dropdowns
+    #
+    # static dropdowns
+    driver.get('https://rahulshettyacademy.com/angularpractice')
+
+    dropdown = Select(driver.find_element(By.ID, 'exampleFormControlSelect1'))
+    dropdown.select_by_visible_text('Female')
+    dropdown.select_by_index(0)
+    #dropdown.select_by_value()
+
+    # dynamic dropdowns
+    driver.get('https://rahulshettyacademy.com/dropdownsPractise')
+
+    driver.find_element(By.ID, 'autosuggest').send_keys('Ind')
+    time.sleep(2)
+    countries = driver.find_elements(By.CSS_SELECTOR, 'li[class="ui-menu-item"] a')
+
+    for country in countries:
+        if country.text == 'India':
+            country.click()
+            break
+
+    #print(driver.find_element(By.ID, 'autosuggest').text)
+    # because this is a dynamic field that is filled in by the automation script, can't use .text
+    assert driver.find_element(By.ID, 'autosuggest').get_attribute('value') == 'India'
 
     time.sleep(3)
 
