@@ -72,6 +72,27 @@ def main():
 
     time.sleep(3)
 
+    # UI controls based locators
+    driver.get('https://rahulshettyacademy.com/AutomationPractice')
+
+    checkboxes = driver.find_elements(By.CSS_SELECTOR, 'input[type="checkbox"]')
+    print(len(checkboxes))
+
+    for checkbox in checkboxes:
+        if checkbox.get_attribute('value') == 'option2':
+            checkbox.click()
+            assert checkbox.is_selected()
+            break
+
+    radio_buttons = driver.find_elements(By.CSS_SELECTOR, 'input[type="radio"]')
+    for radio_button in radio_buttons:
+        if radio_button.get_attribute('value') == 'radio2':
+            radio_button.click()
+            assert radio_button.is_selected()
+            break
+
+    time.sleep(3)
+
     driver.close()
 
 
