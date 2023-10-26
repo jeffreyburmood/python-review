@@ -102,7 +102,26 @@ def main():
     driver.find_element(By.ID, 'hide-textbox').click()
     assert not driver.find_element(By.ID, 'displayed-text').is_displayed()
 
-    
+    # Javascript alerts
+    name = 'jeff'
+    driver.find_element(By.CSS_SELECTOR, '#name').send_keys(name)
+    driver.find_element(By.CSS_SELECTOR, 'input[value="Alert"]').click()
+    # now create an alert browser object that is in alert mode
+    alert = driver.switch_to.alert
+    alert_text = alert.text
+    print(alert_text)
+    assert name in alert_text
+    # click on OK button
+    alert.accept()
+    # now work on a dismiss for an alert
+    driver.find_element(By.CSS_SELECTOR, '#name').send_keys(name)
+    driver.find_element(By.ID, 'confirmbtn').click()
+    alert_text = alert.text
+    print(alert_text)
+    assert name in alert_text
+    # click the cancel button
+    alert.dismiss()
+
     time.sleep(3)
 
     driver.close()
