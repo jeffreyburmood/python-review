@@ -11,6 +11,6 @@ import pytest
 def test_quicktest():
     print('Hello from pytest')
 
-
+@pytest.mark.burnin
 def test_anotherquicktest():
     print('Hello again from pytest')
