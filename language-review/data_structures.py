@@ -129,6 +129,34 @@ myset = {i for i in range(5)}
 print(myset)
 
 # dictionaries - hashmaps
+mydict = {}
+mydict['alice'] = 88
+mydict['bob'] = 77
+print(mydict)
+
+mydict['alice'] = 89
+print(mydict['alice'])
+
+mydict.pop('alice')
+print('alice' in mydict)
+
+mydict = {'alice':90, 'bob':80}
+print(mydict)
+
+mydict = { i: i*2 for i in range(5)}
+print(mydict)
+
+# looping through dicts
+for key in mydict:
+    print(key, mydict[key])
+
+for value in mydict.values():
+    print(value)
+
+for key, val in mydict.items():
+    print(key, val)
+
+
 
 
 
