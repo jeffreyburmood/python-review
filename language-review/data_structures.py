@@ -65,3 +65,71 @@ arr.sort(reverse=True)
 print(arr)
 
 # list comprehension
+arr = [i for i in range(5)]
+print(arr)
+
+arr = [i+1 for i in range(5)]
+print(arr)
+
+# build 2D array with 4 elements
+arr = [[0]*4 for i in range(4)]
+print(arr)
+
+# strings are similar to arrays
+s = 'abc'
+print(s[0:2])
+
+# strings are immutable so updating a string creates a new string
+s += 'def'
+print(s)
+
+# valid numeric strings can be converted to integers
+print(int('123') + int('123'))
+
+# and numbers can be converted to strings
+print(str(123) + str(123))
+
+# get ASCII value of a character
+print(ord('a'))
+print(ord('b'))
+
+# queues - double ended queues
+from collections import deque
+
+queue = deque()
+queue.append(1)
+queue.append(2)
+print(queue)
+
+queue.popleft()
+print(queue)
+
+queue.appendleft(1)
+queue.pop()
+print(queue)
+
+# hashset
+myset = set()
+myset.add(1)
+myset.add(2)
+print(myset)
+print(len(myset))
+
+print(1 in myset)
+print(2 in myset)
+print(3 in myset)
+
+myset.remove(2)
+print(2 in myset)
+
+# initialize a set with a list or set comprehension
+print(set([1,2,3]))
+
+myset = {i for i in range(5)}
+print(myset)
+
+# dictionaries - hashmaps
+
+
+
+
