@@ -156,6 +156,22 @@ for value in mydict.values():
 for key, val in mydict.items():
     print(key, val)
 
+# tuples - immutable list-like
+tup = (1,2,3)
+print(tup)
+print(tup[0])
+print(tup[-1])
+
+# can't modify
+# tup[0] = 0
+
+# can be used as a key for a dictionary - hashmap or a set
+mydict = {(1,2): 3}
+print(mydict[(1,2)])
+
+myset = set()
+myset.add((1,2))
+print(myset)
 
 
 
