@@ -22,10 +22,10 @@ class MyClass:
         self.nums = nums
         self.size = len(nums)
 
-    def getLength(self):
+    def getLength(self) -> int:
         return self.size
 
-    def getDoubleLength(self):
+    def getDoubleLength(self) -> int:
         return 2 * self.getLength()
 
     
