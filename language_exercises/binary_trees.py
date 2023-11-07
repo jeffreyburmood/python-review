@@ -1,6 +1,21 @@
 """ this script contains various methods for working with binary trees """
 
-def binaryTreeConstructor(nodeList: list) -> str:
+class TreeNode:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def buildBinaryTree(values: list) -> TreeNode:
+    binaryTree = []
+    # set root node
+    node = TreeNode(values[0])
+    binaryTree.append(node)
+    for i in range(1, len(values)):
+        node = TreeNode(values[i])
+        
+
+def isBinaryTree(nodeList: list) -> str:
     # deal with the weird string-based tuples crap
     parentList = []
     for node in nodeList:
@@ -10,6 +25,25 @@ def binaryTreeConstructor(nodeList: list) -> str:
             return 'false'
     return 'true'
 
+def inorderTraversal(self, root: TreeNode) -> None:
+    if root.left != None:
+        self.inorderTraversal(root.left)
+    self.ordered.append(root.val)
+    if root.right != None:
+        self.inorderTraversal(root.right)
+
+def inorderTraversal(self, root: TreeNode) -> None:
+    if root == None:
+        return
+    self.inorderTraversal(root.left)
+    self.ordered.append(root.val)
+    self.inorderTraversal(root.right)
+
+@property
+def ordered(self):
+    return self.orderedResult
+
+tree1 =
 
 list1 = ['(1,2)', '(2,4)', '(5,7)', '(7,2)', '(9, 5)']
 list2 = ['(1,2)', '(3,2)', '(2,12)', '(5,2)']
