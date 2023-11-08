@@ -49,6 +49,7 @@ for num in nums:
     print(num)
 
 # with index and value
+# The enumerate() function adds a counter to an iterable and returns it (the enumerate object - (count, iterableitem)).
 for i, n in enumerate(nums):
     print(i, n)
 

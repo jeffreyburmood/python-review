@@ -15,6 +15,7 @@ def buildBinaryTree(values: list) -> TreeNode:
         node = TreeNode(values[i])
         
 
+# The eval() method parses the expression passed to this method and runs python expression (code) within the program.
 def isBinaryTree(nodeList: list) -> str:
     # deal with the weird string-based tuples crap
     parentList = []
@@ -43,10 +44,9 @@ def inorderTraversal(self, root: TreeNode) -> None:
 def ordered(self):
     return self.orderedResult
 
-tree1 =
 
 list1 = ['(1,2)', '(2,4)', '(5,7)', '(7,2)', '(9, 5)']
 list2 = ['(1,2)', '(3,2)', '(2,12)', '(5,2)']
 
-print(binaryTreeConstructor(list1))
-print(binaryTreeConstructor(list2))
+print(isBinaryTree(list1))
+print(isBinaryTree(list2))
