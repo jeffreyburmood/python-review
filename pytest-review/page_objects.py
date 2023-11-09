@@ -12,3 +12,6 @@ class TestWithPOM:
         # use login PO
         login_page = LoginPage(driver)
         driver.get('https://rahulshettyacademy.com')
+
+import request
+
